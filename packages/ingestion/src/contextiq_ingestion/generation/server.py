@@ -273,8 +273,9 @@ def main(argv: list[str] | None = None) -> int:
     import argparse
 
     parser = argparse.ArgumentParser(prog="contextiq-serve")
-    parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=8787)
+    on_paas = bool(os.getenv("PORT"))
+    parser.add_argument("--host", default="0.0.0.0" if on_paas else "127.0.0.1")
+    parser.add_argument("--port", type=int, default=int(os.getenv("PORT", "8787")))
     parser.add_argument("--strategy", default="structural")
     parser.add_argument("--generator", default=None)
     parser.add_argument("--embed-provider", default=None)

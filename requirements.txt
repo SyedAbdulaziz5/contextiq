@@ -1,0 +1,3 @@
+# Railway / Railpack: install the API package from this monorepo.
+# Railpack detects Python from this file at the repo root.
+-e "./packages/ingestion[serve,local]"

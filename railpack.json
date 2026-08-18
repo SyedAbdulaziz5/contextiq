@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schema.railpack.com",
+  "provider": "python",
+  "packages": {
+    "python": "3.12"
+  },
+  "deploy": {
+    "startCommand": "contextiq-serve --host 0.0.0.0 --port ${PORT:-8787}",
+    "variables": {
+      "CONTEXTIQ_REPO_ROOT": "/app",
+      "PYTHONUNBUFFERED": "1"
+    }
+  }
+}

@@ -58,32 +58,41 @@ Upload them to your API host's persistent volume, or as a build artefact.
 
 ## Step 3 — Deploy the Python API (Railway recommended)
 
-### Option A: Railway
+### Option A: Railway (Railpack)
 
-1. Go to [railway.app](https://railway.app) → New Project → **Deploy from GitHub repo**.
-2. Select your repo → choose **Custom Start Command**.
-3. Set the **Root Directory** to `/` (build from repo root).
-4. Railway will detect `infra/Dockerfile.api` if you configure it, or use the Procfile below.
+This is a **monorepo**. Railpack looks at the **repo root**. Leave **Root Directory empty** (`/`). Do not set it to `apps/web`.
 
-**`Procfile`** (add at repo root if using Railway's buildpack instead of Docker):
+The repo includes:
 
-```
-web: cd packages/ingestion && pip install -e '.[serve,local]' && contextiq-serve --host 0.0.0.0 --port $PORT
-```
+- `requirements.txt` — so Railpack detects Python
+- `railpack.json` — Python 3.12 + start command
+- `Procfile` — `contextiq-serve --host 0.0.0.0 --port $PORT`
 
-**Environment variables** to set in Railway:
+Redeploy after those files are on GitHub.
+
+**Railway service settings**
+
+| Setting | Value |
+|---|---|
+| Root Directory | *(empty / repo root)* |
+| Builder | Railpack (default) |
+| Start command | *(leave empty — railpack.json / Procfile)* |
+
+**Environment variables** (do **not** set `PORT` — Railway injects it):
 
 ```
 CONTEXTIQ_EMBEDDING_PROVIDER=sbert
 CONTEXTIQ_GENERATOR=extractive
-CONTEXTIQ_AUTH_MODE=api_key
-CONTEXTIQ_API_KEY=<generate a strong random key>
+CONTEXTIQ_AUTH_MODE=open
 CONTEXTIQ_CORS_ORIGINS=https://your-app.vercel.app
 CONTEXTIQ_REPO_ROOT=/app
-PORT=8787
 ```
 
-5. Add a **persistent volume** and mount corpus embeddings to `/app/corpus/`.
+Optional lock: `CONTEXTIQ_AUTH_MODE=api_key` + `CONTEXTIQ_API_KEY=...`
+
+Add a **volume** and mount baked embeddings at `/app/corpus`.
+
+The `[local]` extra pulls sentence-transformers (and torch). If the build OOMs, bump RAM or switch the extra to `[serve]` and `CONTEXTIQ_EMBEDDING_PROVIDER=hash` for a smoke deploy only.
 
 ### Option B: Render
 
