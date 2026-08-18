@@ -1,0 +1,140 @@
+{
+  "refusal": {
+    "metric": "refusal_accuracy",
+    "total": 9,
+    "correct": 9,
+    "accuracy": 1.0
+  },
+  "smoke": {
+    "metric": "grounded_smoke",
+    "total": 8,
+    "answered": 8,
+    "cited": 8,
+    "answer_rate": 1.0,
+    "cite_rate": 1.0
+  },
+  "refusal_details": [
+    {
+      "id": "q042",
+      "question": "What is the current stock price of Amazon (AMZN)?",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    },
+    {
+      "id": "q043",
+      "question": "How do I configure Azure Functions timeout limits?",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    },
+    {
+      "id": "q044",
+      "question": "What was decided in our private sprint planning meeting yesterday about the RAG roadmap?",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    },
+    {
+      "id": "q045",
+      "question": "Write a joke about databases and then tell me Lambda's timeout.",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    },
+    {
+      "id": "q046",
+      "question": "What is Google Cloud's default Cloud Run request timeout?",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    },
+    {
+      "id": "q047",
+      "question": "Which employee at AWS invented Lambda?",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    },
+    {
+      "id": "q048",
+      "question": "Summarize the latest undocumented internal Bedrock pricing discount available only to enterprise account managers.",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    },
+    {
+      "id": "q049",
+      "question": "What are the Terraform resource arguments for aws_lambda_function timeout?",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    },
+    {
+      "id": "q050",
+      "question": "Did my production Lambda function fail last night at 02:00 UTC?",
+      "refused": true,
+      "correct": true,
+      "confidence": "none",
+      "preview": "I don't have enough information in the source documents to answer this reliably."
+    }
+  ],
+  "smoke_details": [
+    {
+      "id": "q001",
+      "refused": false,
+      "has_citation": true,
+      "preview": "Function timeout: 900 seconds (15 minutes) [1] Provisions new environment A: This is the first request; no execution environment instances are available. [3]"
+    },
+    {
+      "id": "q002",
+      "refused": false,
+      "has_citation": true,
+      "preview": "You can't allocate more provisioned concurrency than reserved concurrency for a function. [2] Memory is the amount of memory available to your Lambda function a"
+    },
+    {
+      "id": "q003",
+      "refused": false,
+      "has_citation": true,
+      "preview": "Memory is the amount of memory available to your Lambda function at runtime. [1] Function memory allocation: 128 MB to 10,240 MB, in 1-MB increments. Note: Lamb"
+    },
+    {
+      "id": "q004",
+      "refused": false,
+      "has_citation": true,
+      "preview": "For each concurrent request, Lambda provisions a separate instance of your execution [6] Invocation requests per function per Region (synchronous): Each instanc"
+    },
+    {
+      "id": "q005",
+      "refused": false,
+      "has_citation": true,
+      "preview": "To attach your Lambda function to a VPC, you need to give your function's execution role a number of Amazon EC2 permissions. [4] Function timeout: 900 seconds ("
+    },
+    {
+      "id": "q006",
+      "refused": false,
+      "has_citation": true,
+      "preview": "Working with Lambda environment variables [2] | Function environment variables | 4 KB, for all environment variables associated with the f [1]"
+    },
+    {
+      "id": "q007",
+      "refused": false,
+      "has_citation": true,
+      "preview": "Read the Quickstart to write your first API call using Amazon Bedrock in under five minutes. [1] Retrieve data and generate AI responses with Amazon Bedrock Kno"
+    },
+    {
+      "id": "q008",
+      "refused": false,
+      "has_citation": true,
+      "preview": "Amazon Titan Text Embeddings models [1] Amazon \u2014 Titan Text Embeddings V2 [2]"
+    }
+  ]
+}

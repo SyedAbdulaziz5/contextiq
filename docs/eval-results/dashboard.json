@@ -1,0 +1,176 @@
+{
+  "title": "RAG Evaluation",
+  "queries_evaluated": 75,
+  "metrics_pct": {
+    "context_recall": 89.3,
+    "context_precision": 41.6,
+    "faithfulness": 100.0,
+    "answer_relevancy": 68.7,
+    "refusal_accuracy": 100.0
+  },
+  "metrics": {
+    "context_precision": 0.4156,
+    "context_recall": 0.8932,
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.6865,
+    "refusal_accuracy": 1.0,
+    "hallucination_rate": 0.0
+  },
+  "strategy": "structural",
+  "mode": "hybrid_rerank",
+  "generator": "local",
+  "experiments": [
+    {
+      "experiment": "Fixed chunks",
+      "recall": 91.1,
+      "faithfulness": 100.0
+    },
+    {
+      "experiment": "Structural chunks",
+      "recall": 90.9,
+      "faithfulness": 100.0
+    },
+    {
+      "experiment": "Semantic chunks",
+      "recall": 80.2,
+      "faithfulness": 100.0
+    },
+    {
+      "experiment": "Hybrid + reranker",
+      "recall": 89.3,
+      "faithfulness": 100.0
+    }
+  ],
+  "winner": "Fixed chunks",
+  "production_default": "Hybrid + reranker",
+  "notes": "Faithfulness is near-ceiling with the local extractive generator (answers are copied from context). Recall differentiates setups. Production default remains structural + hybrid_rerank.",
+  "baseline": {
+    "ref": "main",
+    "metrics_pct": {
+      "context_recall": 89.3,
+      "context_precision": 41.6,
+      "faithfulness": 100.0,
+      "answer_relevancy": 68.7,
+      "refusal_accuracy": 100.0
+    },
+    "strategy": "structural",
+    "mode": "hybrid_rerank",
+    "generator": "local",
+    "queries_evaluated": 75,
+    "notes": "Promote with: contextiq-eval promote-baseline after a green main eval."
+  },
+  "comparison": [
+    {
+      "key": "context_recall",
+      "label": "Retrieval Recall",
+      "current": 89.3,
+      "baseline": 89.3,
+      "delta_pp": 0.0
+    },
+    {
+      "key": "context_precision",
+      "label": "Context Precision",
+      "current": 41.6,
+      "baseline": 41.6,
+      "delta_pp": 0.0
+    },
+    {
+      "key": "faithfulness",
+      "label": "Faithfulness",
+      "current": 100.0,
+      "baseline": 100.0,
+      "delta_pp": 0.0
+    },
+    {
+      "key": "answer_relevancy",
+      "label": "Answer Relevancy",
+      "current": 68.7,
+      "baseline": 68.7,
+      "delta_pp": 0.0
+    },
+    {
+      "key": "refusal_accuracy",
+      "label": "Refusal Accuracy",
+      "current": 100.0,
+      "baseline": 100.0,
+      "delta_pp": 0.0
+    }
+  ],
+  "experiment_details": [
+    {
+      "name": "Fixed chunks",
+      "experiment": "Fixed chunks",
+      "strategy": "fixed",
+      "backend": "sparse_bm25",
+      "retriever": "Sparse BM25 only",
+      "reranker": "None",
+      "mode": "sparse",
+      "top_k": 5,
+      "chunking": "fixed",
+      "recall": 91.1,
+      "faithfulness": 100.0,
+      "latency_ms_avg": null,
+      "delta_recall_pp": 1.8,
+      "delta_latency_ms": null,
+      "n": 64,
+      "error": null
+    },
+    {
+      "name": "Structural chunks",
+      "experiment": "Structural chunks",
+      "strategy": "structural",
+      "backend": "sparse_bm25",
+      "retriever": "Sparse BM25 only",
+      "reranker": "None",
+      "mode": "sparse",
+      "top_k": 5,
+      "chunking": "structural",
+      "recall": 90.9,
+      "faithfulness": 100.0,
+      "latency_ms_avg": null,
+      "delta_recall_pp": 1.6,
+      "delta_latency_ms": null,
+      "n": 64,
+      "error": null
+    },
+    {
+      "name": "Semantic chunks",
+      "experiment": "Semantic chunks",
+      "strategy": "semantic",
+      "backend": "sparse_bm25",
+      "retriever": "Sparse BM25 only",
+      "reranker": "None",
+      "mode": "sparse",
+      "top_k": 5,
+      "chunking": "semantic",
+      "recall": 80.2,
+      "faithfulness": 100.0,
+      "latency_ms_avg": null,
+      "delta_recall_pp": -9.1,
+      "delta_latency_ms": null,
+      "n": 64,
+      "error": null
+    },
+    {
+      "name": "Hybrid + reranker",
+      "experiment": "Hybrid + reranker",
+      "strategy": "structural",
+      "backend": "hybrid_rerank",
+      "retriever": "Dense + sparse (BM25) \u2192 RRF",
+      "reranker": "Feature / lexical reranker",
+      "mode": "hybrid_rerank",
+      "top_k": 5,
+      "chunking": "structural",
+      "recall": 89.3,
+      "faithfulness": 100.0,
+      "latency_ms_avg": null,
+      "delta_recall_pp": 0.0,
+      "delta_latency_ms": null,
+      "n": 64,
+      "error": null
+    }
+  ],
+  "production_rationale": "Production default is structural chunking + hybrid_rerank: hybrid closes keyword misses that pure dense search leaves, reranking improves citation precision, and structural chunks preserve section boundaries better than semantic splits on this corpus. Fixed-size chunks can win raw BM25 recall in isolation but lose structure and hybrid quality in the full pipeline.",
+  "top_k": 5,
+  "workspace_version": 11
+}

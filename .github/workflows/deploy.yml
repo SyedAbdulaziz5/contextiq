@@ -1,0 +1,61 @@
+name: Deploy
+
+# Phase 18 — deploy readiness + compose validation.
+# Real host promote is MANUAL (secrets + provider account).
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Deploy target"
+        required: true
+        default: "docs-check"
+        type: choice
+        options:
+          - docs-check
+          - compose-config
+          - compose-build-smoke
+          - note-only
+
+jobs:
+  deploy:
+    name: Deploy readiness
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify eval evidence present
+        if: inputs.target == 'docs-check' || inputs.target == 'compose-config' || inputs.target == 'compose-build-smoke'
+        run: |
+          test -f docs/eval-results.md
+          test -f docs/eval-results/rag-metrics.json
+          test -f eval/ci/baseline.json
+          test -f eval/ci/thresholds.json
+          test -f docs/runbook-production.md
+          test -f infra/docker-compose.yml
+          test -f infra/Dockerfile.api
+          test -f infra/Dockerfile.web
+          echo "Eval + deploy artifacts OK."
+
+      - name: Validate compose file
+        if: inputs.target == 'compose-config' || inputs.target == 'compose-build-smoke'
+        run: docker compose -f infra/docker-compose.yml config -q
+
+      - name: Smoke-build API image (no torch)
+        if: inputs.target == 'compose-build-smoke'
+        run: |
+          docker build \
+            -f infra/Dockerfile.api \
+            --build-arg PIP_EXTRAS=serve \
+            -t contextiq-api:smoke \
+            .
+
+      - name: Summary
+        run: |
+          echo "### Deploy" >> "$GITHUB_STEP_SUMMARY"
+          echo "Target: \`${{ inputs.target }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Runbook: \`docs/runbook-production.md\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Compose: \`infra/docker-compose.yml\` (api + web; \`--profile db\` for Postgres)." >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Next (MANUAL): pick host, set secrets, bake embeddings, put Live Demo URL in README." >> "$GITHUB_STEP_SUMMARY"
+          echo "Keep the RAG eval gate green before promote." >> "$GITHUB_STEP_SUMMARY"

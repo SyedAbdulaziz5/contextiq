@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 10% -10%, #e8efe9 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #ebe6dc 0%, transparent 50%);
+}

@@ -1,0 +1,24 @@
+{
+  "description": "Absolute floors and max allowed drop vs baseline (main). Scores are 0–1 fractions.",
+  "floors": {
+    "context_recall": 0.85,
+    "faithfulness": 0.9,
+    "refusal_accuracy": 0.9,
+    "context_precision": 0.3,
+    "answer_relevancy": 0.5
+  },
+  "max_regression": {
+    "context_recall": 0.03,
+    "faithfulness": 0.02,
+    "refusal_accuracy": 0.05,
+    "context_precision": 0.05,
+    "answer_relevancy": 0.05
+  },
+  "primary_metrics": [
+    "faithfulness",
+    "context_recall",
+    "refusal_accuracy",
+    "context_precision",
+    "answer_relevancy"
+  ]
+}

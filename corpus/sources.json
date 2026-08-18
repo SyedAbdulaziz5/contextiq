@@ -1,0 +1,583 @@
+{
+  "project": "ContextIQ",
+  "corpus_name": "web-backend-cloud-docs",
+  "description": "Primary demo corpus: Next.js + FastAPI official docs (easy for recruiters to try). Retained Phase 0 AWS Lambda / Bedrock / SST sources so the golden evaluation set stays valid. Same ingestion pipeline handles all three families.",
+  "rationale": [
+    "Next.js + FastAPI: immediately understandable demo ('ask the docs')",
+    "AWS/SST/Bedrock: keeps Phase 0 golden.jsonl source_ids valid and matches infra stack",
+    "Mixed HTML + Markdown/MDX stress-tests structure-preserving parsers",
+    "Real public docs — not toy PDFs"
+  ],
+  "ingestion_plan": {
+    "raw_zone": "corpus/raw/",
+    "clean_zone": "corpus/clean/",
+    "catalog_db": "corpus/catalog.sqlite",
+    "formats": ["html", "markdown", "mdx", "pdf"],
+    "target_page_count": "80+ seed pages now; expand toward 300–800",
+    "note": "Local filesystem mirrors future S3 raw/clean zones. Postgres comes in Phase 3."
+  },
+  "sources": [
+    {
+      "id": "nextjs-docs-index",
+      "family": "nextjs",
+      "title": "Next.js Docs",
+      "url": "https://nextjs.org/docs",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/index.mdx",
+      "format": "mdx",
+      "topics": ["overview", "app router", "pages router"]
+    },
+    {
+      "id": "nextjs-installation",
+      "family": "nextjs",
+      "title": "Next.js Installation",
+      "url": "https://nextjs.org/docs/app/getting-started/installation",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/01-installation.mdx",
+      "format": "mdx",
+      "topics": ["create-next-app", "install"]
+    },
+    {
+      "id": "nextjs-project-structure",
+      "family": "nextjs",
+      "title": "Project Structure",
+      "url": "https://nextjs.org/docs/app/getting-started/project-structure",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/02-project-structure.mdx",
+      "format": "mdx",
+      "topics": ["app directory", "file conventions"]
+    },
+    {
+      "id": "nextjs-layouts-and-pages",
+      "family": "nextjs",
+      "title": "Layouts and Pages",
+      "url": "https://nextjs.org/docs/app/getting-started/layouts-and-pages",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/03-layouts-and-pages.mdx",
+      "format": "mdx",
+      "topics": ["layout.tsx", "page.tsx"]
+    },
+    {
+      "id": "nextjs-linking-and-navigating",
+      "family": "nextjs",
+      "title": "Linking and Navigating",
+      "url": "https://nextjs.org/docs/app/getting-started/linking-and-navigating",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/04-linking-and-navigating.mdx",
+      "format": "mdx",
+      "topics": ["Link", "useRouter", "redirect"]
+    },
+    {
+      "id": "nextjs-server-and-client-components",
+      "family": "nextjs",
+      "title": "Server and Client Components",
+      "url": "https://nextjs.org/docs/app/getting-started/server-and-client-components",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/05-server-and-client-components.mdx",
+      "format": "mdx",
+      "topics": ["use client", "rsc"]
+    },
+    {
+      "id": "nextjs-fetching-data",
+      "family": "nextjs",
+      "title": "Fetching Data",
+      "url": "https://nextjs.org/docs/app/getting-started/fetching-data",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/06-fetching-data.mdx",
+      "format": "mdx",
+      "topics": ["fetch", "async", "server components"]
+    },
+    {
+      "id": "nextjs-mutating-data",
+      "family": "nextjs",
+      "title": "Mutating Data",
+      "url": "https://nextjs.org/docs/app/getting-started/mutating-data",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/07-mutating-data.mdx",
+      "format": "mdx",
+      "topics": ["server actions", "forms"]
+    },
+    {
+      "id": "nextjs-caching",
+      "family": "nextjs",
+      "title": "Caching in Next.js",
+      "url": "https://nextjs.org/docs/app/getting-started/caching",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/08-caching.mdx",
+      "format": "mdx",
+      "topics": ["cache", "revalidate"]
+    },
+    {
+      "id": "nextjs-error-handling",
+      "family": "nextjs",
+      "title": "Error Handling",
+      "url": "https://nextjs.org/docs/app/getting-started/error-handling",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/10-error-handling.mdx",
+      "format": "mdx",
+      "topics": ["error.tsx", "not-found"]
+    },
+    {
+      "id": "nextjs-css",
+      "family": "nextjs",
+      "title": "CSS in Next.js",
+      "url": "https://nextjs.org/docs/app/getting-started/css",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/11-css.mdx",
+      "format": "mdx",
+      "topics": ["css modules", "tailwind"]
+    },
+    {
+      "id": "nextjs-images",
+      "family": "nextjs",
+      "title": "Image Optimization",
+      "url": "https://nextjs.org/docs/app/getting-started/images",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/12-images.mdx",
+      "format": "mdx",
+      "topics": ["next/image"]
+    },
+    {
+      "id": "nextjs-fonts",
+      "family": "nextjs",
+      "title": "Font Optimization",
+      "url": "https://nextjs.org/docs/app/getting-started/fonts",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/13-fonts.mdx",
+      "format": "mdx",
+      "topics": ["next/font"]
+    },
+    {
+      "id": "nextjs-metadata",
+      "family": "nextjs",
+      "title": "Metadata and OG images",
+      "url": "https://nextjs.org/docs/app/getting-started/metadata-and-og-images",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/14-metadata-and-og-images.mdx",
+      "format": "mdx",
+      "topics": ["metadata", "open graph"]
+    },
+    {
+      "id": "nextjs-route-handlers",
+      "family": "nextjs",
+      "title": "Route Handlers",
+      "url": "https://nextjs.org/docs/app/getting-started/route-handlers",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/15-route-handlers.mdx",
+      "format": "mdx",
+      "topics": ["route.ts", "API routes"]
+    },
+    {
+      "id": "nextjs-deploying",
+      "family": "nextjs",
+      "title": "Deploying",
+      "url": "https://nextjs.org/docs/app/getting-started/deploying",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/01-getting-started/17-deploying.mdx",
+      "format": "mdx",
+      "topics": ["vercel", "deploy"]
+    },
+    {
+      "id": "nextjs-routing-defining-routes",
+      "family": "nextjs",
+      "title": "Defining Routes",
+      "url": "https://nextjs.org/docs/app/building-your-application/routing/defining-routes",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/03-api-reference/03-file-conventions/page.mdx",
+      "format": "mdx",
+      "topics": ["page", "routing"]
+    },
+    {
+      "id": "nextjs-dynamic-routes",
+      "family": "nextjs",
+      "title": "Dynamic Route Segments",
+      "url": "https://nextjs.org/docs/app/api-reference/file-conventions/dynamic-routes",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/03-api-reference/03-file-conventions/dynamic-routes.mdx",
+      "format": "mdx",
+      "topics": ["[slug]", "catch-all"]
+    },
+    {
+      "id": "nextjs-loading",
+      "family": "nextjs",
+      "title": "loading.js",
+      "url": "https://nextjs.org/docs/app/api-reference/file-conventions/loading",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/03-api-reference/03-file-conventions/loading.mdx",
+      "format": "mdx",
+      "topics": ["loading UI", "suspense"]
+    },
+    {
+      "id": "nextjs-config",
+      "family": "nextjs",
+      "title": "next.config.js Options",
+      "url": "https://nextjs.org/docs/app/api-reference/config/next-config-js",
+      "fetch_url": "https://raw.githubusercontent.com/vercel/next.js/canary/docs/01-app/03-api-reference/05-config/01-next-config-js/index.mdx",
+      "format": "mdx",
+      "topics": ["next.config", "configuration"]
+    },
+
+    {
+      "id": "fastapi-index",
+      "family": "fastapi",
+      "title": "FastAPI Documentation",
+      "url": "https://fastapi.tiangolo.com/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/index.md",
+      "format": "markdown",
+      "topics": ["overview", "features"]
+    },
+    {
+      "id": "fastapi-first-steps",
+      "family": "fastapi",
+      "title": "First Steps",
+      "url": "https://fastapi.tiangolo.com/tutorial/first-steps/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/first-steps.md",
+      "format": "markdown",
+      "topics": ["Hello World", "uvicorn"]
+    },
+    {
+      "id": "fastapi-path-params",
+      "family": "fastapi",
+      "title": "Path Parameters",
+      "url": "https://fastapi.tiangolo.com/tutorial/path-params/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/path-params.md",
+      "format": "markdown",
+      "topics": ["path parameters", "types"]
+    },
+    {
+      "id": "fastapi-query-params",
+      "family": "fastapi",
+      "title": "Query Parameters",
+      "url": "https://fastapi.tiangolo.com/tutorial/query-params/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/query-params.md",
+      "format": "markdown",
+      "topics": ["query", "defaults"]
+    },
+    {
+      "id": "fastapi-request-body",
+      "family": "fastapi",
+      "title": "Request Body",
+      "url": "https://fastapi.tiangolo.com/tutorial/body/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/body.md",
+      "format": "markdown",
+      "topics": ["Pydantic", "JSON body"]
+    },
+    {
+      "id": "fastapi-query-validation",
+      "family": "fastapi",
+      "title": "Query Parameters and String Validations",
+      "url": "https://fastapi.tiangolo.com/tutorial/query-params-str-validations/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/query-params-str-validations.md",
+      "format": "markdown",
+      "topics": ["Query", "validation"]
+    },
+    {
+      "id": "fastapi-path-validation",
+      "family": "fastapi",
+      "title": "Path Parameters and Numeric Validations",
+      "url": "https://fastapi.tiangolo.com/tutorial/path-params-numeric-validations/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/path-params-numeric-validations.md",
+      "format": "markdown",
+      "topics": ["Path", "ge", "le"]
+    },
+    {
+      "id": "fastapi-body-fields",
+      "family": "fastapi",
+      "title": "Body - Fields",
+      "url": "https://fastapi.tiangolo.com/tutorial/body-fields/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/body-fields.md",
+      "format": "markdown",
+      "topics": ["Field", "validation"]
+    },
+    {
+      "id": "fastapi-header-params",
+      "family": "fastapi",
+      "title": "Header Parameters",
+      "url": "https://fastapi.tiangolo.com/tutorial/header-params/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/header-params.md",
+      "format": "markdown",
+      "topics": ["Header"]
+    },
+    {
+      "id": "fastapi-response-model",
+      "family": "fastapi",
+      "title": "Response Model",
+      "url": "https://fastapi.tiangolo.com/tutorial/response-model/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/response-model.md",
+      "format": "markdown",
+      "topics": ["response_model"]
+    },
+    {
+      "id": "fastapi-dependencies",
+      "family": "fastapi",
+      "title": "Dependencies",
+      "url": "https://fastapi.tiangolo.com/tutorial/dependencies/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/dependencies/index.md",
+      "format": "markdown",
+      "topics": ["Depends", "DI"]
+    },
+    {
+      "id": "fastapi-security-oauth2",
+      "family": "fastapi",
+      "title": "Security - OAuth2",
+      "url": "https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/security/oauth2-jwt.md",
+      "format": "markdown",
+      "topics": ["OAuth2", "JWT"]
+    },
+    {
+      "id": "fastapi-cors",
+      "family": "fastapi",
+      "title": "CORS",
+      "url": "https://fastapi.tiangolo.com/tutorial/cors/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/cors.md",
+      "format": "markdown",
+      "topics": ["CORSMiddleware"]
+    },
+    {
+      "id": "fastapi-middleware",
+      "family": "fastapi",
+      "title": "Middleware",
+      "url": "https://fastapi.tiangolo.com/tutorial/middleware/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/middleware.md",
+      "format": "markdown",
+      "topics": ["middleware"]
+    },
+    {
+      "id": "fastapi-bigger-applications",
+      "family": "fastapi",
+      "title": "Bigger Applications - Multiple Files",
+      "url": "https://fastapi.tiangolo.com/tutorial/bigger-applications/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/bigger-applications.md",
+      "format": "markdown",
+      "topics": ["APIRouter", "structure"]
+    },
+    {
+      "id": "fastapi-background-tasks",
+      "family": "fastapi",
+      "title": "Background Tasks",
+      "url": "https://fastapi.tiangolo.com/tutorial/background-tasks/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/background-tasks.md",
+      "format": "markdown",
+      "topics": ["BackgroundTasks"]
+    },
+    {
+      "id": "fastapi-testing",
+      "family": "fastapi",
+      "title": "Testing",
+      "url": "https://fastapi.tiangolo.com/tutorial/testing/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/tutorial/testing.md",
+      "format": "markdown",
+      "topics": ["TestClient", "pytest"]
+    },
+    {
+      "id": "fastapi-deployment",
+      "family": "fastapi",
+      "title": "Deployment Concepts",
+      "url": "https://fastapi.tiangolo.com/deployment/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/deployment/index.md",
+      "format": "markdown",
+      "topics": ["deploy", "uvicorn"]
+    },
+    {
+      "id": "fastapi-async",
+      "family": "fastapi",
+      "title": "Concurrency and async / await",
+      "url": "https://fastapi.tiangolo.com/async/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/async.md",
+      "format": "markdown",
+      "topics": ["async", "await"]
+    },
+    {
+      "id": "fastapi-python-types",
+      "family": "fastapi",
+      "title": "Python Types Intro",
+      "url": "https://fastapi.tiangolo.com/python-types/",
+      "fetch_url": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/python-types.md",
+      "format": "markdown",
+      "topics": ["typing", "Pydantic"]
+    },
+
+    {
+      "id": "aws-lambda-limits",
+      "family": "aws",
+      "title": "Lambda quotas / getting started limits",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html",
+      "format": "html",
+      "topics": ["timeout", "memory", "payload", "layers", "env vars", "ephemeral storage"]
+    },
+    {
+      "id": "aws-lambda-concurrency",
+      "family": "aws",
+      "title": "Understanding Lambda function concurrency",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html",
+      "format": "html",
+      "topics": ["reserved concurrency", "account concurrency", "requests per second"]
+    },
+    {
+      "id": "aws-lambda-scaling",
+      "family": "aws",
+      "title": "Lambda scaling behavior",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/scaling-behavior.html",
+      "format": "html",
+      "topics": ["concurrency scaling rate", "throttling 429"]
+    },
+    {
+      "id": "aws-lambda-memory",
+      "family": "aws",
+      "title": "Configuring Lambda function memory",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html",
+      "format": "html",
+      "topics": ["CPU proportional to memory", "1769 MB vCPU"]
+    },
+    {
+      "id": "aws-lambda-envvars",
+      "family": "aws",
+      "title": "Lambda environment variables",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html",
+      "format": "html",
+      "topics": ["4 KB aggregate limit"]
+    },
+    {
+      "id": "aws-lambda-layers",
+      "family": "aws",
+      "title": "Working with Lambda layers",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/chapter-layers.html",
+      "format": "html",
+      "topics": ["max 5 layers", "shared code"]
+    },
+    {
+      "id": "aws-lambda-deployment",
+      "family": "aws",
+      "title": "Lambda deployment packages",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html",
+      "format": "html",
+      "topics": ["zip size limits", "container images"]
+    },
+    {
+      "id": "aws-lambda-invocation",
+      "family": "aws",
+      "title": "Invoking Lambda functions",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html",
+      "format": "html",
+      "topics": ["sync vs async", "payload sizes"]
+    },
+    {
+      "id": "aws-lambda-runtimes",
+      "family": "aws",
+      "title": "Lambda runtimes",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+      "format": "html",
+      "topics": ["Node.js", "Python", "managed runtimes"]
+    },
+    {
+      "id": "aws-lambda-vpc",
+      "family": "aws",
+      "title": "Connecting Lambda to VPC",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html",
+      "format": "html",
+      "topics": ["ENI", "cold start", "subnet"]
+    },
+    {
+      "id": "aws-lambda-versions-aliases",
+      "family": "aws",
+      "title": "Lambda versions and aliases",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html",
+      "format": "html",
+      "topics": ["immutable versions", "aliases", "traffic shifting"]
+    },
+    {
+      "id": "aws-lambda-dlq",
+      "family": "aws",
+      "title": "Lambda dead-letter queues",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html",
+      "format": "html",
+      "topics": ["async failures", "SQS SNS DLQ"]
+    },
+    {
+      "id": "aws-bedrock-overview",
+      "family": "aws",
+      "title": "What is Amazon Bedrock",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+      "format": "html",
+      "topics": ["foundation models", "API", "managed"]
+    },
+    {
+      "id": "aws-bedrock-titan-embeddings",
+      "family": "aws",
+      "title": "Amazon Titan Text Embeddings models",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html",
+      "format": "html",
+      "topics": ["titan-embed-text-v2:0", "dimensions", "8192 tokens"]
+    },
+    {
+      "id": "aws-bedrock-titan-embed-params",
+      "family": "aws",
+      "title": "Titan Embed Text model parameters",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-embed-text.html",
+      "format": "html",
+      "topics": ["inputText", "normalize", "dimensions", "embeddingTypes"]
+    },
+    {
+      "id": "aws-bedrock-titan-v2-card",
+      "family": "aws",
+      "title": "Titan Text Embeddings V2 model card",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-titan-text-embeddings-v2.html",
+      "format": "html",
+      "topics": ["8K context", "RAG optimized"]
+    },
+    {
+      "id": "aws-bedrock-claude",
+      "family": "aws",
+      "title": "Anthropic Claude models on Bedrock",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html",
+      "format": "html",
+      "topics": ["messages API", "generation"]
+    },
+    {
+      "id": "aws-bedrock-inference",
+      "family": "aws",
+      "title": "Bedrock model invocation / inference",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference.html",
+      "format": "html",
+      "topics": ["InvokeModel", "streaming", "on-demand"]
+    },
+    {
+      "id": "aws-bedrock-knowledge-bases",
+      "family": "aws",
+      "title": "Amazon Bedrock Knowledge Bases",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "format": "html",
+      "topics": ["managed RAG", "vector store"]
+    },
+    {
+      "id": "aws-bedrock-guardrails",
+      "family": "aws",
+      "title": "Amazon Bedrock Guardrails",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+      "format": "html",
+      "topics": ["content filters", "denied topics"]
+    },
+    {
+      "id": "sst-what-is",
+      "family": "sst",
+      "title": "What is SST",
+      "url": "https://sst.dev/docs",
+      "format": "html",
+      "topics": ["IaC", "Ion", "AWS"]
+    },
+    {
+      "id": "sst-components",
+      "family": "sst",
+      "title": "SST components overview",
+      "url": "https://sst.dev/docs/components",
+      "format": "html",
+      "topics": ["Function", "Bucket", "Postgres"]
+    },
+    {
+      "id": "sst-live",
+      "family": "sst",
+      "title": "SST Live / Dev mode",
+      "url": "https://sst.dev/docs/live",
+      "format": "html",
+      "topics": ["local Linked Lambdas", "dev"]
+    },
+    {
+      "id": "sst-link",
+      "family": "sst",
+      "title": "SST Resource Linking",
+      "url": "https://sst.dev/docs/linking",
+      "format": "html",
+      "topics": ["Resource.", "permissions"]
+    },
+    {
+      "id": "sst-console",
+      "family": "sst",
+      "title": "SST Console",
+      "url": "https://sst.dev/docs/console",
+      "format": "html",
+      "topics": ["observability", "stages"]
+    }
+  ]
+}

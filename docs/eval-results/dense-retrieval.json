@@ -1,0 +1,10 @@
+{
+  "strategy": "structural",
+  "backend": "memory",
+  "embedding_model": "local-hashing-1024",
+  "answerable_questions": 64,
+  "metrics": {
+    "recall@5": 0.0625,
+    "recall@10": 0.1562
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "suite": "experiments",
+  "top_k": 5,
+  "notes": "Faithfulness is near-ceiling with the local extractive generator (answers are copied from context). Recall differentiates setups. Production default remains structural + hybrid_rerank.",
+  "experiments": [
+    {
+      "name": "Fixed chunks",
+      "strategy": "fixed",
+      "backend": "sparse_bm25",
+      "recall": 0.9115,
+      "faithfulness": 1.0,
+      "recall_pct": 91.1,
+      "faithfulness_pct": 100.0,
+      "n": 64,
+      "top_k": 5,
+      "retriever": "Sparse BM25 only",
+      "reranker": "None",
+      "delta_recall_pp": 1.8,
+      "latency_ms_avg": null
+    },
+    {
+      "name": "Structural chunks",
+      "strategy": "structural",
+      "backend": "sparse_bm25",
+      "recall": 0.9089,
+      "faithfulness": 1.0,
+      "recall_pct": 90.9,
+      "faithfulness_pct": 100.0,
+      "n": 64,
+      "top_k": 5,
+      "retriever": "Sparse BM25 only",
+      "reranker": "None",
+      "delta_recall_pp": 1.6,
+      "latency_ms_avg": null
+    },
+    {
+      "name": "Semantic chunks",
+      "strategy": "semantic",
+      "backend": "sparse_bm25",
+      "recall": 0.8021,
+      "faithfulness": 1.0,
+      "recall_pct": 80.2,
+      "faithfulness_pct": 100.0,
+      "n": 64,
+      "top_k": 5,
+      "retriever": "Sparse BM25 only",
+      "reranker": "None",
+      "delta_recall_pp": -9.1,
+      "latency_ms_avg": null
+    },
+    {
+      "name": "Hybrid + reranker",
+      "strategy": "structural",
+      "backend": "hybrid_rerank",
+      "recall": 0.8932,
+      "faithfulness": 1.0,
+      "recall_pct": 89.3,
+      "faithfulness_pct": 100.0,
+      "n": 64,
+      "top_k": 5,
+      "retriever": "Dense + sparse (BM25) \u2192 RRF",
+      "reranker": "Feature / lexical reranker",
+      "delta_recall_pp": 0.0,
+      "latency_ms_avg": null
+    }
+  ],
+  "winner": "Fixed chunks",
+  "production_default": "Hybrid + reranker",
+  "table": [
+    {
+      "experiment": "Fixed chunks",
+      "recall": 91.1,
+      "faithfulness": 100.0,
+      "latency_ms_avg": null,
+      "delta_recall_pp": 1.8
+    },
+    {
+      "experiment": "Structural chunks",
+      "recall": 90.9,
+      "faithfulness": 100.0,
+      "latency_ms_avg": null,
+      "delta_recall_pp": 1.6
+    },
+    {
+      "experiment": "Semantic chunks",
+      "recall": 80.2,
+      "faithfulness": 100.0,
+      "latency_ms_avg": null,
+      "delta_recall_pp": -9.1
+    },
+    {
+      "experiment": "Hybrid + reranker",
+      "recall": 89.3,
+      "faithfulness": 100.0,
+      "latency_ms_avg": null,
+      "delta_recall_pp": 0.0
+    }
+  ],
+  "production_rationale": "Production default is structural chunking + hybrid_rerank: hybrid closes keyword misses that pure dense search leaves, reranking improves citation precision, and structural chunks preserve section boundaries better than semantic splits on this corpus. Fixed-size chunks can win raw BM25 recall in isolation but lose structure and hybrid quality in the full pipeline."
+}

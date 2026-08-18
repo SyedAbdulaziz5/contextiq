@@ -1,0 +1,4278 @@
+{
+  "ks": [
+    5,
+    10
+  ],
+  "golden_size": 75,
+  "strategies": {
+    "fixed": {
+      "chunk_count": 82,
+      "answerable_questions": 64,
+      "skipped_no_expected_sources": 11,
+      "metrics": {
+        "recall@5": 0.8906,
+        "recall@10": 0.9349
+      },
+      "by_category": {
+        "ambiguous": {
+          "recall@5": 0.7857,
+          "recall@10": 0.8571
+        },
+        "edge_case": {
+          "recall@5": 0.8636,
+          "recall@10": 0.9091
+        },
+        "factual": {
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "keyword": {
+          "recall@5": 0.9091,
+          "recall@10": 0.9091
+        },
+        "multi_hop": {
+          "recall@5": 0.625,
+          "recall@10": 0.8542
+        },
+        "table": {
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        }
+      },
+      "chunk_stats": {
+        "avg_tokens": 435.6,
+        "p50_tokens": 500,
+        "p95_tokens": 500,
+        "max_tokens": 500,
+        "table_like_chunks": 20,
+        "sources_covered": 25
+      },
+      "per_question": [
+        {
+          "id": "q001",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-bedrock-claude",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q002",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q003",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "sst-console",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-deployment"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q004",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q005",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-layers"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q006",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-envvars"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-envvars",
+            "aws-lambda-envvars",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q007",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-overview"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-overview",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-inference",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q008",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-lambda-envvars",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q009",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-what-is"
+          ],
+          "retrieved_source_ids": [
+            "sst-what-is",
+            "sst-what-is",
+            "sst-console",
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-live",
+            "sst-link",
+            "sst-components",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q010",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "sst-live",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q011",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q012",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q013",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-deployment",
+            "aws-lambda-dlq",
+            "aws-lambda-memory",
+            "sst-components",
+            "sst-what-is"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q014",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-link"
+          ],
+          "retrieved_source_ids": [
+            "sst-link",
+            "sst-link",
+            "sst-what-is",
+            "sst-components",
+            "sst-components",
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-console",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q015",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-live"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "sst-what-is",
+            "sst-live",
+            "sst-what-is",
+            "sst-console",
+            "sst-live",
+            "sst-link",
+            "sst-what-is",
+            "sst-components",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q016",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-overview",
+            "aws-bedrock-claude",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-claude"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q017",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-invocation",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q018",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "sst-components",
+            "aws-bedrock-claude",
+            "aws-lambda-envvars",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q019",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-claude",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-knowledge-bases",
+            "sst-components",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q020",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "sst-components",
+            "sst-components",
+            "aws-lambda-runtimes",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-concurrency",
+            "aws-lambda-dlq",
+            "sst-components",
+            "sst-what-is"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        {
+          "id": "q021",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-inference"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-inference",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-overview",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-concurrency",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-claude"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q022",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "aws-lambda-concurrency",
+            "aws-lambda-dlq",
+            "aws-lambda-concurrency",
+            "sst-live",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q023",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "aws-lambda-dlq",
+            "sst-console",
+            "sst-live",
+            "aws-lambda-layers",
+            "aws-lambda-versions-aliases",
+            "sst-console",
+            "aws-lambda-versions-aliases"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q024",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "sst-live",
+            "aws-lambda-dlq",
+            "aws-bedrock-inference",
+            "aws-bedrock-knowledge-bases",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q025",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "sst-components",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-bedrock-claude",
+            "aws-lambda-envvars",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q026",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q027",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q028",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-bedrock-claude",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-runtimes",
+            "aws-lambda-scaling",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q029",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-deployment",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-deployment",
+            "aws-lambda-layers",
+            "aws-lambda-layers",
+            "aws-lambda-deployment",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q030",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "sst-components",
+            "sst-console",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q031",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-knowledge-bases",
+            "sst-components",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-claude",
+            "sst-console",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q032",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q033",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-deployment",
+            "sst-live",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-knowledge-bases"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q034",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-memory",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-titan-embed-params",
+            "aws-lambda-deployment"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q035",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q036",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-guardrails",
+            "sst-console",
+            "sst-console",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q037",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "sst-link",
+            "aws-lambda-envvars",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-envvars",
+            "sst-link",
+            "sst-live",
+            "sst-live",
+            "sst-console",
+            "sst-components",
+            "sst-what-is",
+            "sst-link",
+            "aws-lambda-envvars",
+            "sst-console"
+          ],
+          "recall@5": 0.6667,
+          "recall@10": 0.6667
+        },
+        {
+          "id": "q038",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-overview"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-overview",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-envvars",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q039",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-invocation",
+            "aws-lambda-dlq",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "aws-bedrock-knowledge-bases",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "aws-lambda-layers",
+            "sst-what-is",
+            "sst-what-is",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 0.3333,
+          "recall@10": 0.6667
+        },
+        {
+          "id": "q040",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "sst-live",
+            "aws-lambda-runtimes"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "sst-live",
+            "sst-live",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-link",
+            "sst-console",
+            "sst-what-is",
+            "sst-link",
+            "sst-console"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q041",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-vpc",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q051",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-claude",
+            "aws-lambda-envvars",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits",
+            "sst-components",
+            "sst-what-is",
+            "sst-console",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-bedrock-overview"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q052",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-versions-aliases",
+            "sst-console",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-dlq",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q053",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-claude"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "sst-console",
+            "sst-console",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-overview",
+            "aws-bedrock-inference",
+            "aws-lambda-runtimes",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q055",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-limits",
+            "sst-components",
+            "sst-console",
+            "sst-what-is",
+            "aws-lambda-limits",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q056",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q057",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "sst-what-is"
+          ],
+          "retrieved_source_ids": [
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-link",
+            "sst-what-is",
+            "sst-link",
+            "sst-console",
+            "sst-live",
+            "sst-live"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q058",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "sst-what-is",
+            "sst-components"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q059",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-scaling",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-limits",
+            "aws-bedrock-claude",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q060",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "aws-lambda-concurrency",
+            "aws-lambda-runtimes",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-runtimes",
+            "sst-console",
+            "sst-console",
+            "sst-console",
+            "aws-lambda-scaling"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        {
+          "id": "q061",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-memory"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-deployment",
+            "aws-lambda-concurrency",
+            "aws-lambda-envvars"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q062",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-layers"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-layers",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-lambda-limits",
+            "aws-lambda-layers",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-lambda-memory",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q063",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-v2-card",
+            "sst-console",
+            "sst-components",
+            "sst-console",
+            "sst-components",
+            "aws-bedrock-titan-embed-params",
+            "aws-lambda-limits",
+            "aws-lambda-layers"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q064",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-knowledge-bases",
+            "aws-lambda-concurrency",
+            "sst-what-is",
+            "sst-console",
+            "sst-what-is"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q065",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-scaling",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-bedrock-claude",
+            "aws-lambda-envvars",
+            "aws-lambda-versions-aliases",
+            "sst-console",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q067",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-limits",
+            "aws-lambda-envvars",
+            "sst-console",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q068",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-claude",
+            "aws-lambda-runtimes",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-bedrock-claude"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q069",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q070",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q071",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-guardrails"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-claude",
+            "aws-bedrock-overview",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-inference",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-layers"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q072",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-versions-aliases"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-versions-aliases",
+            "aws-lambda-runtimes",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q073",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-console"
+          ],
+          "retrieved_source_ids": [
+            "sst-what-is",
+            "sst-console",
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-link",
+            "sst-live"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q074",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-components"
+          ],
+          "retrieved_source_ids": [
+            "sst-components",
+            "sst-link",
+            "sst-what-is",
+            "sst-link",
+            "sst-components",
+            "aws-lambda-deployment",
+            "sst-components",
+            "sst-console",
+            "sst-what-is",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q075",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        }
+      ]
+    },
+    "structural": {
+      "chunk_count": 79,
+      "answerable_questions": 64,
+      "skipped_no_expected_sources": 11,
+      "metrics": {
+        "recall@5": 0.8724,
+        "recall@10": 0.9401
+      },
+      "by_category": {
+        "ambiguous": {
+          "recall@5": 0.5714,
+          "recall@10": 0.8571
+        },
+        "edge_case": {
+          "recall@5": 0.8636,
+          "recall@10": 0.9091
+        },
+        "factual": {
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "keyword": {
+          "recall@5": 0.9091,
+          "recall@10": 0.9091
+        },
+        "multi_hop": {
+          "recall@5": 0.6667,
+          "recall@10": 0.8958
+        },
+        "table": {
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        }
+      },
+      "chunk_stats": {
+        "avg_tokens": 398.1,
+        "p50_tokens": 446,
+        "p95_tokens": 500,
+        "max_tokens": 678,
+        "table_like_chunks": 16,
+        "sources_covered": 25
+      },
+      "per_question": [
+        {
+          "id": "q001",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-bedrock-claude",
+            "aws-lambda-concurrency",
+            "aws-lambda-envvars",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-envvars"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q002",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q003",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-deployment",
+            "aws-lambda-memory",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q004",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q005",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-layers"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "aws-lambda-layers",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q006",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-envvars"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-envvars",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-envvars",
+            "aws-lambda-envvars",
+            "aws-lambda-layers",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q007",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-overview"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-overview",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-inference",
+            "sst-console",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q008",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-envvars",
+            "aws-bedrock-claude",
+            "aws-bedrock-guardrails",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q009",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-what-is"
+          ],
+          "retrieved_source_ids": [
+            "sst-console",
+            "sst-what-is",
+            "sst-console",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-components",
+            "sst-live",
+            "sst-link",
+            "sst-console",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q010",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-live",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q011",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q012",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q013",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "sst-components",
+            "sst-what-is",
+            "aws-lambda-dlq",
+            "aws-lambda-memory",
+            "aws-lambda-deployment",
+            "aws-lambda-deployment"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q014",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-link"
+          ],
+          "retrieved_source_ids": [
+            "sst-link",
+            "sst-what-is",
+            "sst-link",
+            "sst-components",
+            "sst-console",
+            "sst-what-is",
+            "sst-console",
+            "sst-console",
+            "sst-components",
+            "sst-live"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q015",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-live"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-live",
+            "sst-live",
+            "sst-console",
+            "sst-link",
+            "sst-what-is",
+            "sst-components",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q016",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-overview",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-claude",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q017",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-invocation",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q018",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-bedrock-claude",
+            "aws-lambda-envvars"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q019",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "sst-components",
+            "aws-bedrock-knowledge-bases",
+            "aws-lambda-invocation"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q020",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "sst-components",
+            "aws-bedrock-titan-v2-card",
+            "sst-components",
+            "sst-what-is",
+            "aws-lambda-dlq",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        {
+          "id": "q021",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-inference"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-inference",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-overview",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embed-params",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q022",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "aws-lambda-concurrency",
+            "aws-lambda-dlq",
+            "aws-lambda-limits",
+            "sst-live",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q023",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "aws-lambda-limits",
+            "aws-lambda-dlq",
+            "sst-live",
+            "sst-console",
+            "sst-console",
+            "aws-lambda-layers",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-versions-aliases"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q024",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "sst-live",
+            "aws-lambda-invocation",
+            "aws-lambda-dlq",
+            "aws-lambda-concurrency",
+            "aws-bedrock-inference",
+            "aws-bedrock-knowledge-bases",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q025",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "sst-components",
+            "aws-bedrock-claude",
+            "aws-lambda-envvars",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q026",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-concurrency",
+            "aws-lambda-runtimes",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q027",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-concurrency",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-versions-aliases",
+            "sst-components",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q028",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-bedrock-claude",
+            "aws-lambda-runtimes",
+            "sst-console",
+            "aws-lambda-scaling"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q029",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-deployment",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-deployment",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "aws-lambda-deployment",
+            "aws-lambda-layers",
+            "aws-lambda-memory"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q030",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "sst-console",
+            "sst-components",
+            "sst-live"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q031",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-knowledge-bases",
+            "sst-console",
+            "sst-components",
+            "aws-bedrock-claude",
+            "aws-lambda-concurrency",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q032",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "sst-console",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-bedrock-titan-embeddings",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q033",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-deployment",
+            "sst-live",
+            "aws-lambda-limits",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-concurrency",
+            "aws-bedrock-titan-v2-card"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q034",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-deployment",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-memory",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-knowledge-bases"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q035",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-scaling",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q036",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-guardrails",
+            "sst-console",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-guardrails",
+            "sst-console"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q037",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "sst-link",
+            "aws-lambda-envvars",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-envvars",
+            "sst-link",
+            "sst-live",
+            "sst-link",
+            "sst-live",
+            "sst-what-is",
+            "sst-components",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-envvars"
+          ],
+          "recall@5": 0.6667,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q038",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-overview"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-overview",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-limits",
+            "aws-bedrock-guardrails",
+            "sst-console",
+            "aws-lambda-runtimes",
+            "sst-what-is",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q039",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-invocation",
+            "aws-lambda-dlq",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "aws-lambda-limits",
+            "aws-bedrock-knowledge-bases",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-invocation",
+            "aws-lambda-layers",
+            "aws-lambda-concurrency",
+            "sst-what-is",
+            "sst-what-is",
+            "aws-lambda-versions-aliases"
+          ],
+          "recall@5": 0.6667,
+          "recall@10": 0.6667
+        },
+        {
+          "id": "q040",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "sst-live",
+            "aws-lambda-runtimes"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "sst-live",
+            "sst-live",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-link",
+            "sst-console",
+            "sst-what-is",
+            "sst-link",
+            "sst-console"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q041",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-vpc",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q051",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-claude",
+            "aws-lambda-envvars",
+            "sst-console",
+            "aws-lambda-versions-aliases",
+            "sst-components",
+            "sst-what-is",
+            "aws-lambda-limits",
+            "aws-lambda-runtimes",
+            "sst-components",
+            "aws-bedrock-overview"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q052",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "sst-console",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-memory",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-dlq",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q053",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-claude"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-overview",
+            "aws-bedrock-inference",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-guardrails",
+            "aws-lambda-dlq"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q055",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-limits",
+            "sst-console",
+            "sst-components",
+            "sst-what-is",
+            "aws-lambda-runtimes",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q056",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q057",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "sst-what-is"
+          ],
+          "retrieved_source_ids": [
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-link",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-link",
+            "sst-live",
+            "sst-console",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q058",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "sst-what-is",
+            "sst-components",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q059",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-bedrock-claude",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q060",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "aws-lambda-concurrency",
+            "aws-lambda-runtimes",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-components",
+            "aws-lambda-scaling"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        {
+          "id": "q061",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-memory"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-memory",
+            "aws-lambda-deployment",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-envvars"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q062",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-layers"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-layers",
+            "aws-lambda-vpc",
+            "aws-lambda-limits",
+            "aws-lambda-layers",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-lambda-memory",
+            "aws-lambda-vpc",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q063",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-v2-card",
+            "sst-console",
+            "sst-components",
+            "sst-components",
+            "aws-bedrock-titan-embed-params",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-layers"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q064",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-knowledge-bases",
+            "aws-lambda-concurrency",
+            "aws-bedrock-guardrails",
+            "sst-what-is",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q065",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-scaling",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-bedrock-claude",
+            "aws-lambda-envvars",
+            "aws-lambda-versions-aliases",
+            "sst-console",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q067",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-limits",
+            "aws-lambda-envvars",
+            "sst-console",
+            "aws-lambda-versions-aliases",
+            "sst-components",
+            "sst-what-is",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q068",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-claude",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q069",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q070",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q071",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-guardrails"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-overview",
+            "aws-bedrock-claude",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-inference",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-knowledge-bases"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q072",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-versions-aliases"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-versions-aliases",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc",
+            "aws-lambda-layers",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q073",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-console"
+          ],
+          "retrieved_source_ids": [
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-console",
+            "sst-link",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q074",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-components"
+          ],
+          "retrieved_source_ids": [
+            "sst-components",
+            "sst-link",
+            "sst-what-is",
+            "sst-link",
+            "sst-components",
+            "aws-lambda-deployment",
+            "sst-what-is",
+            "sst-console",
+            "aws-bedrock-knowledge-bases",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q075",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        }
+      ]
+    },
+    "semantic": {
+      "chunk_count": 309,
+      "answerable_questions": 64,
+      "skipped_no_expected_sources": 11,
+      "metrics": {
+        "recall@5": 0.8099,
+        "recall@10": 0.888
+      },
+      "by_category": {
+        "ambiguous": {
+          "recall@5": 0.5714,
+          "recall@10": 0.6429
+        },
+        "edge_case": {
+          "recall@5": 0.7273,
+          "recall@10": 0.8182
+        },
+        "factual": {
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        "keyword": {
+          "recall@5": 0.6818,
+          "recall@10": 0.9091
+        },
+        "multi_hop": {
+          "recall@5": 0.7292,
+          "recall@10": 0.7917
+        },
+        "table": {
+          "recall@5": 0.9375,
+          "recall@10": 1.0
+        }
+      },
+      "chunk_stats": {
+        "avg_tokens": 101.8,
+        "p50_tokens": 89,
+        "p95_tokens": 172,
+        "max_tokens": 678,
+        "table_like_chunks": 21,
+        "sources_covered": 25
+      },
+      "per_question": [
+        {
+          "id": "q001",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-bedrock-claude",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q002",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q003",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-lambda-memory",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q004",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q005",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-layers"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-layers",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "sst-what-is",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q006",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-envvars"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-envvars",
+            "aws-lambda-envvars",
+            "aws-lambda-envvars",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency",
+            "aws-lambda-runtimes",
+            "aws-lambda-envvars",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q007",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-overview"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-guardrails",
+            "aws-bedrock-overview",
+            "aws-bedrock-overview",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-overview",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-v2-card"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q008",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q009",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-what-is"
+          ],
+          "retrieved_source_ids": [
+            "sst-what-is",
+            "sst-console",
+            "sst-console",
+            "sst-what-is",
+            "sst-console",
+            "sst-live",
+            "sst-what-is",
+            "sst-live",
+            "sst-what-is",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q010",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q011",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q012",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q013",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "sst-what-is",
+            "aws-lambda-deployment",
+            "aws-lambda-deployment",
+            "aws-lambda-limits",
+            "aws-lambda-dlq",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q014",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-link"
+          ],
+          "retrieved_source_ids": [
+            "sst-what-is",
+            "sst-link",
+            "sst-components",
+            "sst-console",
+            "sst-console",
+            "sst-link",
+            "sst-what-is",
+            "sst-link",
+            "sst-link",
+            "sst-what-is"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q015",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-live"
+          ],
+          "retrieved_source_ids": [
+            "sst-what-is",
+            "sst-live",
+            "sst-what-is",
+            "sst-live",
+            "sst-live",
+            "sst-link",
+            "sst-what-is",
+            "sst-console",
+            "sst-live",
+            "sst-live"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q016",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-overview",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q017",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-deployment",
+            "aws-lambda-limits",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-invocation",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q018",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-claude"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q019",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q020",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "sst-what-is",
+            "sst-console",
+            "aws-lambda-deployment",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        {
+          "id": "q021",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-inference"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-inference",
+            "aws-bedrock-inference",
+            "aws-bedrock-overview",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-overview",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-concurrency",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q022",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "aws-lambda-invocation",
+            "aws-lambda-invocation",
+            "sst-live",
+            "aws-lambda-limits",
+            "aws-bedrock-titan-embed-params",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-dlq"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q023",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "aws-lambda-dlq",
+            "aws-lambda-invocation",
+            "sst-live",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-layers",
+            "aws-lambda-versions-aliases"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q024",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-invocation",
+            "sst-live",
+            "aws-lambda-invocation",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-bedrock-inference",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers",
+            "aws-lambda-versions-aliases"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q025",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-claude"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q026",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q027",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-memory"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q028",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-bedrock-claude",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-runtimes",
+            "aws-lambda-limits",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q029",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-deployment",
+            "aws-lambda-deployment",
+            "aws-lambda-limits",
+            "aws-lambda-layers",
+            "aws-lambda-layers",
+            "aws-lambda-memory",
+            "aws-lambda-deployment",
+            "aws-lambda-memory"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q030",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q031",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q032",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-vpc",
+            "sst-console",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-layers",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-lambda-layers",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q033",
+          "category": "table",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-deployment",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-bedrock-inference",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q034",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-memory",
+            "sst-console",
+            "aws-lambda-invocation",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-vpc",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q035",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-layers",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q036",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "sst-console",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-lambda-layers",
+            "sst-components"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q037",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "sst-link",
+            "aws-lambda-envvars",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-envvars",
+            "sst-link",
+            "sst-what-is",
+            "aws-lambda-envvars",
+            "sst-components",
+            "sst-link",
+            "sst-live",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-envvars",
+            "sst-live"
+          ],
+          "recall@5": 0.6667,
+          "recall@10": 0.6667
+        },
+        {
+          "id": "q038",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-overview"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "aws-bedrock-knowledge-bases",
+            "sst-what-is",
+            "aws-bedrock-overview",
+            "aws-lambda-vpc",
+            "aws-bedrock-guardrails"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q039",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-invocation",
+            "aws-lambda-dlq",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "sst-what-is",
+            "aws-lambda-invocation",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-bedrock-knowledge-bases",
+            "sst-live",
+            "aws-lambda-versions-aliases",
+            "sst-console",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 0.6667,
+          "recall@10": 0.6667
+        },
+        {
+          "id": "q040",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "sst-live",
+            "aws-lambda-runtimes"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "sst-live",
+            "sst-live",
+            "sst-live",
+            "sst-what-is",
+            "sst-live",
+            "sst-link",
+            "sst-what-is",
+            "sst-console",
+            "aws-lambda-deployment"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q041",
+          "category": "multi_hop",
+          "expected_source_ids": [
+            "aws-lambda-vpc",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q051",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-claude",
+            "sst-what-is",
+            "aws-lambda-envvars",
+            "sst-console",
+            "aws-lambda-versions-aliases",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "sst-live",
+            "sst-components",
+            "sst-what-is"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        {
+          "id": "q052",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-bedrock-knowledge-bases"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q053",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-claude"
+          ],
+          "retrieved_source_ids": [
+            "sst-console",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-dlq",
+            "aws-bedrock-inference",
+            "aws-lambda-concurrency",
+            "aws-bedrock-overview",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-layers",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q055",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "sst-console",
+            "aws-bedrock-titan-v2-card",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "sst-components",
+            "sst-link",
+            "sst-console",
+            "sst-live",
+            "sst-what-is"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q056",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "sst-console",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-vpc",
+            "aws-lambda-concurrency",
+            "aws-lambda-memory"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q057",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "sst-what-is"
+          ],
+          "retrieved_source_ids": [
+            "sst-console",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-link",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-what-is"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q058",
+          "category": "ambiguous",
+          "expected_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "sst-components",
+            "aws-lambda-concurrency",
+            "sst-what-is"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 0.5
+        },
+        {
+          "id": "q059",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "sst-console",
+            "aws-lambda-limits",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q060",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "sst-live",
+            "sst-live",
+            "sst-live",
+            "aws-lambda-concurrency",
+            "aws-lambda-runtimes",
+            "sst-what-is",
+            "sst-console",
+            "sst-console",
+            "aws-lambda-runtimes",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        {
+          "id": "q061",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-memory"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-memory",
+            "aws-lambda-limits",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-memory",
+            "aws-lambda-memory"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q062",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-layers"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-layers",
+            "aws-lambda-layers",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-lambda-layers",
+            "aws-lambda-layers",
+            "aws-lambda-limits",
+            "aws-lambda-layers",
+            "aws-lambda-memory",
+            "aws-lambda-vpc"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q063",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-layers",
+            "sst-components",
+            "aws-bedrock-titan-embed-params",
+            "sst-console"
+          ],
+          "recall@5": 0.5,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q064",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q065",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-limits",
+            "aws-lambda-vpc",
+            "aws-lambda-vpc",
+            "aws-bedrock-claude",
+            "aws-lambda-vpc",
+            "aws-lambda-limits",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-envvars",
+            "aws-lambda-limits",
+            "sst-console"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q067",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-limits"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-claude",
+            "aws-lambda-concurrency",
+            "aws-bedrock-titan-embeddings",
+            "sst-what-is",
+            "sst-console",
+            "sst-console",
+            "aws-lambda-concurrency",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-envvars",
+            "sst-components"
+          ],
+          "recall@5": 0.0,
+          "recall@10": 0.0
+        },
+        {
+          "id": "q068",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q069",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q070",
+          "category": "edge_case",
+          "expected_source_ids": [
+            "aws-lambda-concurrency"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency",
+            "aws-lambda-scaling",
+            "aws-lambda-concurrency",
+            "aws-lambda-limits",
+            "aws-lambda-concurrency",
+            "aws-lambda-concurrency"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q071",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-bedrock-guardrails"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-overview",
+            "aws-bedrock-guardrails",
+            "aws-bedrock-inference",
+            "aws-bedrock-claude"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q072",
+          "category": "factual",
+          "expected_source_ids": [
+            "aws-lambda-versions-aliases"
+          ],
+          "retrieved_source_ids": [
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-runtimes",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-vpc",
+            "aws-lambda-versions-aliases",
+            "aws-lambda-runtimes"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q073",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-console"
+          ],
+          "retrieved_source_ids": [
+            "sst-console",
+            "sst-what-is",
+            "sst-console",
+            "sst-what-is",
+            "sst-what-is",
+            "sst-console",
+            "sst-link",
+            "sst-live",
+            "sst-console",
+            "sst-what-is"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q074",
+          "category": "factual",
+          "expected_source_ids": [
+            "sst-components"
+          ],
+          "retrieved_source_ids": [
+            "sst-components",
+            "sst-link",
+            "aws-lambda-concurrency",
+            "sst-what-is",
+            "sst-link",
+            "aws-lambda-deployment",
+            "sst-components",
+            "sst-components",
+            "sst-link",
+            "sst-components"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        },
+        {
+          "id": "q075",
+          "category": "keyword",
+          "expected_source_ids": [
+            "aws-bedrock-titan-embeddings"
+          ],
+          "retrieved_source_ids": [
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embeddings",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-embed-params",
+            "aws-bedrock-titan-v2-card",
+            "aws-bedrock-claude",
+            "aws-bedrock-titan-embeddings"
+          ],
+          "recall@5": 1.0,
+          "recall@10": 1.0
+        }
+      ]
+    }
+  },
+  "winner": "fixed",
+  "ranking": [
+    {
+      "strategy": "fixed",
+      "recall@5": 0.8906,
+      "recall@10": 0.9349
+    },
+    {
+      "strategy": "structural",
+      "recall@5": 0.8724,
+      "recall@10": 0.9401
+    },
+    {
+      "strategy": "semantic",
+      "recall@5": 0.8099,
+      "recall@10": 0.888
+    }
+  ]
+}

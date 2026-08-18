@@ -1,0 +1,44 @@
+# syntax=docker/dockerfile:1
+# ContextIQ API — contextiq-serve
+#
+# Build (demo / local compose — includes sentence-transformers):
+#   docker build -f infra/Dockerfile.api --build-arg PIP_EXTRAS=serve,local -t contextiq-api .
+#
+# Build (CI smoke — no torch):
+#   docker build -f infra/Dockerfile.api -t contextiq-api:smoke .
+
+ARG PYTHON_IMAGE=python:3.12-slim-bookworm
+FROM ${PYTHON_IMAGE}
+
+ARG PIP_EXTRAS=serve
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    CONTEXTIQ_REPO_ROOT=/app
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install package first (better layer cache), then copy corpus paths at runtime via volume.
+COPY packages/ingestion/pyproject.toml packages/ingestion/README.md /app/packages/ingestion/
+COPY packages/ingestion/src /app/packages/ingestion/src
+
+RUN pip install --no-cache-dir -e "/app/packages/ingestion[${PIP_EXTRAS}]"
+
+COPY infra/api-entrypoint.sh /usr/local/bin/contextiq-api-entrypoint
+RUN chmod +x /usr/local/bin/contextiq-api-entrypoint
+
+# Placeholders so mounts and health paths exist
+RUN mkdir -p /app/corpus/embeddings /app/docs/eval-results /app/eval
+
+EXPOSE 8787
+
+HEALTHCHECK --interval=15s --timeout=5s --start-period=40s --retries=5 \
+  CMD curl -fsS http://127.0.0.1:8787/health || exit 1
+
+ENTRYPOINT ["contextiq-api-entrypoint"]
+CMD ["contextiq-serve", "--host", "0.0.0.0", "--port", "8787"]

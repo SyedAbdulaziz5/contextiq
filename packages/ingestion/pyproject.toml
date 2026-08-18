@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contextiq-ingestion"
+version = "0.9.0"
+description = "ContextIQ — RAG system with CI-gated evaluation"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "beautifulsoup4>=4.12",
+  "httpx>=0.27",
+  "lxml>=5.0",
+  "pydantic>=2.6",
+  "pypdf>=4.0",
+  "python-frontmatter>=1.1",
+  "tenacity>=8.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+local = ["sentence-transformers>=3.0"]
+postgres = ["psycopg[binary]>=3.1", "pgvector>=0.3"]
+bedrock = ["boto3>=1.34"]
+serve = ["starlette>=0.37", "uvicorn>=0.27"]
+all = [
+  "sentence-transformers>=3.0",
+  "psycopg[binary]>=3.1",
+  "pgvector>=0.3",
+  "boto3>=1.34",
+  "starlette>=0.37",
+  "uvicorn>=0.27",
+]
+
+[project.scripts]
+contextiq-ingest = "contextiq_ingestion.cli:main"
+contextiq-chunk = "contextiq_ingestion.cli_chunk:main"
+contextiq-embed = "contextiq_ingestion.cli_embed:main"
+contextiq-retrieve = "contextiq_ingestion.cli_retrieve:main"
+contextiq-query = "contextiq_ingestion.cli_query:main"
+contextiq-generate = "contextiq_ingestion.cli_generate:main"
+contextiq-serve = "contextiq_ingestion.cli_serve:main"
+contextiq-eval = "contextiq_ingestion.cli_eval:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

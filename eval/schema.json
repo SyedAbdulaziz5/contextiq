@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contextiq.local/eval/golden-record.schema.json",
+  "title": "ContextIQGoldenRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "question", "expected_answer", "expected_source_ids", "category"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^q[0-9]{3}$"
+    },
+    "question": { "type": "string", "minLength": 8 },
+    "expected_answer": { "type": "string", "minLength": 2 },
+    "expected_source_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "factual",
+        "keyword",
+        "multi_hop",
+        "unanswerable",
+        "ambiguous",
+        "table",
+        "edge_case"
+      ]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"]
+    },
+    "notes": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "category": { "const": "unanswerable" } },
+        "required": ["category"]
+      },
+      "then": {
+        "properties": {
+          "expected_source_ids": { "maxItems": 0 }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "category": { "const": "multi_hop" } },
+        "required": ["category"]
+      },
+      "then": {
+        "properties": {
+          "expected_source_ids": { "minItems": 2 }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "rootDirectory": "apps/web",
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/api/contextiq/:path*",
+      "destination": "https://your-api-host.example.com/:path*"
+    }
+  ]
+}

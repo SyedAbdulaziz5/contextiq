@@ -1,0 +1,166 @@
+{
+  "strategy": "structural",
+  "embedding_model": "local-hashing-1024",
+  "answerable_questions": 64,
+  "modes": {
+    "dense": {
+      "metrics": {
+        "recall@5": 0.0391,
+        "recall@8": 0.0547,
+        "precision@5": 0.0094,
+        "precision@8": 0.0078
+      },
+      "by_category": {
+        "ambiguous": {
+          "recall@5": 0.1429,
+          "recall@8": 0.2857
+        },
+        "edge_case": {
+          "recall@5": 0.0,
+          "recall@8": 0.0
+        },
+        "factual": {
+          "recall@5": 0.0263,
+          "recall@8": 0.0263
+        },
+        "keyword": {
+          "recall@5": 0.0,
+          "recall@8": 0.0
+        },
+        "multi_hop": {
+          "recall@5": 0.0,
+          "recall@8": 0.0
+        },
+        "table": {
+          "recall@5": 0.125,
+          "recall@8": 0.125
+        }
+      }
+    },
+    "sparse": {
+      "metrics": {
+        "recall@5": 0.9089,
+        "recall@8": 0.9323,
+        "precision@5": 0.475,
+        "precision@8": 0.3633
+      },
+      "by_category": {
+        "ambiguous": {
+          "recall@5": 0.7857,
+          "recall@8": 0.7857
+        },
+        "edge_case": {
+          "recall@5": 0.9091,
+          "recall@8": 0.9091
+        },
+        "factual": {
+          "recall@5": 1.0,
+          "recall@8": 1.0
+        },
+        "keyword": {
+          "recall@5": 0.9091,
+          "recall@8": 0.9091
+        },
+        "multi_hop": {
+          "recall@5": 0.7083,
+          "recall@8": 0.8958
+        },
+        "table": {
+          "recall@5": 1.0,
+          "recall@8": 1.0
+        }
+      }
+    },
+    "hybrid": {
+      "metrics": {
+        "recall@5": 0.849,
+        "recall@8": 0.9167,
+        "precision@5": 0.4,
+        "precision@8": 0.3496
+      },
+      "by_category": {
+        "ambiguous": {
+          "recall@5": 0.6429,
+          "recall@8": 0.7857
+        },
+        "edge_case": {
+          "recall@5": 0.7727,
+          "recall@8": 0.9091
+        },
+        "factual": {
+          "recall@5": 1.0,
+          "recall@8": 1.0
+        },
+        "keyword": {
+          "recall@5": 0.8636,
+          "recall@8": 0.9091
+        },
+        "multi_hop": {
+          "recall@5": 0.6042,
+          "recall@8": 0.7708
+        },
+        "table": {
+          "recall@5": 1.0,
+          "recall@8": 1.0
+        }
+      }
+    },
+    "hybrid_rerank": {
+      "metrics": {
+        "recall@5": 0.8932,
+        "recall@8": 0.9245,
+        "precision@5": 0.4156,
+        "precision@8": 0.3281
+      },
+      "by_category": {
+        "ambiguous": {
+          "recall@5": 0.7143,
+          "recall@8": 0.7857
+        },
+        "edge_case": {
+          "recall@5": 0.8636,
+          "recall@8": 0.8636
+        },
+        "factual": {
+          "recall@5": 1.0,
+          "recall@8": 1.0
+        },
+        "keyword": {
+          "recall@5": 0.9091,
+          "recall@8": 0.9091
+        },
+        "multi_hop": {
+          "recall@5": 0.7083,
+          "recall@8": 0.8958
+        },
+        "table": {
+          "recall@5": 1.0,
+          "recall@8": 1.0
+        }
+      }
+    }
+  },
+  "winner": "sparse",
+  "ranking": [
+    {
+      "mode": "sparse",
+      "recall": 0.9089,
+      "precision": 0.475
+    },
+    {
+      "mode": "hybrid_rerank",
+      "recall": 0.8932,
+      "precision": 0.4156
+    },
+    {
+      "mode": "hybrid",
+      "recall": 0.849,
+      "precision": 0.4
+    },
+    {
+      "mode": "dense",
+      "recall": 0.0391,
+      "precision": 0.0094
+    }
+  ]
+}

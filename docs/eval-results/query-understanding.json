@@ -1,0 +1,105 @@
+{
+  "router": {
+    "accuracy": 1.0,
+    "n": 7,
+    "cases": [
+      {
+        "query": "Hi",
+        "expect": "greeting",
+        "got": "greeting",
+        "ok": true,
+        "reason": "matches greeting pattern",
+        "reply": "Hi \u2014 I\u2019m ContextIQ. Ask me about the ingested docs (Next.js, FastAPI, AWS Lambda/Bedrock, SST)."
+      },
+      {
+        "query": "hello!",
+        "expect": "greeting",
+        "got": "greeting",
+        "ok": true,
+        "reason": "matches greeting pattern",
+        "reply": "Hi \u2014 I\u2019m ContextIQ. Ask me about the ingested docs (Next.js, FastAPI, AWS Lambda/Bedrock, SST)."
+      },
+      {
+        "query": "What can you do?",
+        "expect": "meta",
+        "got": "meta",
+        "ok": true,
+        "reason": "capability / meta question",
+        "reply": "I retrieve from your documentation corpus with hybrid search (dense + keyword \u2192 RRF \u2192 rerank), then answer with citations. Try: \u201cWhat is amazon.titan-embed-text-v2:0?\u201d or \u201cHow do layouts work in Next.js?\u201d"
+      },
+      {
+        "query": "what is 12 + 30?",
+        "expect": "calculation",
+        "got": "calculation",
+        "ok": true,
+        "reason": "arithmetic expression",
+        "reply": "12 + 30 = 42"
+      },
+      {
+        "query": "what about the second one?",
+        "expect": "clarification",
+        "got": "clarification",
+        "ok": true,
+        "reason": "underspecified without conversation context",
+        "reply": "I need a bit more context \u2014 what topic or document are you referring to?"
+      },
+      {
+        "query": "What is the Lambda timeout?",
+        "expect": "rag",
+        "got": "rag",
+        "ok": true,
+        "reason": "treated as documentation question",
+        "reply": null
+      },
+      {
+        "query": "amazon.titan-embed-text-v2:0 dimensions",
+        "expect": "rag",
+        "got": "rag",
+        "ok": true,
+        "reason": "treated as documentation question",
+        "reply": null
+      }
+    ]
+  },
+  "rewriter": {
+    "accuracy": 1.0,
+    "n": 3,
+    "cases": [
+      {
+        "query": "what about the second one?",
+        "rewritten": "What are the limitations and characteristics of Next.js Server Components?",
+        "changed": true,
+        "ok": true,
+        "reason": "follow-up resolved from conversation history"
+      },
+      {
+        "query": "tell me more about that",
+        "rewritten": "Regarding is the maximum Lambda timeout: provide details, limitations, and related behavior",
+        "changed": true,
+        "ok": true,
+        "reason": "follow-up resolved from conversation history"
+      },
+      {
+        "query": "What is amazon.titan-embed-text-v2:0?",
+        "rewritten": "What is amazon.titan-embed-text-v2:0?",
+        "changed": false,
+        "ok": true,
+        "reason": "standalone query \u2014 no rewrite"
+      }
+    ]
+  },
+  "hyde_ab": {
+    "strategy": "structural",
+    "top_k": 5,
+    "n": 64,
+    "raw": {
+      "recall@5": 0.8932
+    },
+    "hyde": {
+      "recall@5": 0.8776
+    },
+    "delta_hyde_minus_raw": -0.0156,
+    "verdict": "raw_better",
+    "note": "Template HyDE is an offline stand-in. Re-run with CONTEXTIQ_HYDE_PROVIDER=bedrock before concluding HyDE helps in production."
+  }
+}

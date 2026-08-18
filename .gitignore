@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+packages/ingestion/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.pnpm-store/
+
+# Build / framework
+.next/
+.turbo/
+dist/
+build/
+.sst/
+.open-next/
+.sst-dist/
+
+# Env & secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+credentials.json
+**/secrets/
+
+# Local-only scripts & scratch (keep out of git)
+local/
+.tmp/
+tmp/
+*.local.ts
+*.local.py
+
+# Data artifacts (raw/processed corpora can be large)
+corpus/raw/
+corpus/clean/
+corpus/chunks/
+corpus/embeddings/
+corpus/catalog.sqlite
+*.parquet
+*.faiss
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs & coverage
+*.log
+coverage/
+.nyc_output/
+
+# Eval run outputs (committed golden set stays; run artifacts don't)
+eval/runs/
+eval/results/*.json
+!eval/results/.gitkeep
+eval/ci/gate-report.md
+eval/ci/gate-result.json
+# Scratch / planning files (do not commit to public repo)
+Improvements.txt
+RAG_project_guide.txt
+phases.txt
+*.tsbuildinfo
+apps/web/tsconfig.tsbuildinfo
+
+# Internal notes + companion scaffolds — keep locally, not on GitHub
+docs/learning/
+docs/portfolio/
+docs/companions/

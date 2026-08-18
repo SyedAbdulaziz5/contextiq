@@ -1,0 +1,115 @@
+{
+  "title": "Quality · latency · cost tradeoffs",
+  "assumptions_doc": "docs/cost-model.md",
+  "pricing": [
+    {
+      "key": "extractive",
+      "label": "Local extractive",
+      "usd_per_1m_in": 0.0,
+      "usd_per_1m_out": 0.0,
+      "note": "$0 API — extractive grounded generator"
+    },
+    {
+      "key": "ollama",
+      "label": "Ollama local LLM",
+      "usd_per_1m_in": 0.0,
+      "usd_per_1m_out": 0.0,
+      "note": "$0 API — runs on-device; power not metered"
+    },
+    {
+      "key": "bedrock_haiku",
+      "label": "Bedrock Claude 3 Haiku",
+      "usd_per_1m_in": 0.25,
+      "usd_per_1m_out": 1.25,
+      "note": "Optional; AWS list price USD/1M tokens"
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "C1",
+      "title": "Dense-only vs hybrid_rerank (retrieval quality)",
+      "setup_a": {
+        "name": "Dense only",
+        "recall_pct": 3.9,
+        "faithfulness_pct": null,
+        "latency_note": "Dense channel only (hash-era experiment)",
+        "est_cost_usd_per_query": 0.0,
+        "generator": "n/a (retrieval experiment)"
+      },
+      "setup_b": {
+        "name": "Hybrid + rerank",
+        "recall_pct": 89.3,
+        "faithfulness_pct": 100.0,
+        "latency_note": "Dense + sparse → RRF → rerank (production path)",
+        "est_cost_usd_per_query": 0.0,
+        "generator": "local-extractive (eval suite)"
+      },
+      "delta": {
+        "recall_pp": 85.4,
+        "cost_usd": 0.0
+      },
+      "verdict": "Huge quality win at $0 API cost — hybrid is the default.",
+      "source": "docs/eval-results/hybrid-retrieval.json"
+    },
+    {
+      "id": "C2",
+      "title": "Semantic vs structural chunks (same BM25)",
+      "setup_a": {
+        "name": "Semantic chunks",
+        "recall_pct": 80.2,
+        "faithfulness_pct": 100.0,
+        "latency_note": "Sparse BM25 over semantic store",
+        "est_cost_usd_per_query": 0.0,
+        "generator": "local-extractive"
+      },
+      "setup_b": {
+        "name": "Structural chunks",
+        "recall_pct": 90.9,
+        "faithfulness_pct": 100.0,
+        "latency_note": "Sparse BM25 over structural store",
+        "est_cost_usd_per_query": 0.0,
+        "generator": "local-extractive"
+      },
+      "delta": {
+        "recall_pp": 10.7,
+        "cost_usd": 0.0
+      },
+      "verdict": "+10.7 pp recall with no API cost change — keep structural default.",
+      "source": "docs/eval-results/experiments.json"
+    },
+    {
+      "id": "C3",
+      "title": "Local extractive vs Bedrock Haiku (same tokens)",
+      "setup_a": {
+        "name": "Extractive / Ollama",
+        "recall_pct": 89.3,
+        "faithfulness_pct": 100.0,
+        "latency_note": "Generate often <5 ms extractive; Ollama higher but $0 API",
+        "est_cost_usd_per_query": 0.0,
+        "generator": "local-extractive or ollama",
+        "example_tokens": { "input": 312, "output": 37 }
+      },
+      "setup_b": {
+        "name": "Bedrock Claude 3 Haiku (optional)",
+        "recall_pct": 89.3,
+        "faithfulness_pct": null,
+        "latency_note": "Network + model latency (not measured in local suite)",
+        "est_cost_usd_per_query": 0.000124,
+        "generator": "bedrock",
+        "example_tokens": { "input": 312, "output": 37 },
+        "cost_formula": "(312*0.25 + 37*1.25) / 1e6"
+      },
+      "delta": {
+        "recall_pp": 0.0,
+        "cost_usd": 0.000124
+      },
+      "verdict": "At demo scale, Haiku is fractions of a cent/query. Local stays $0; switch only when fluent generation is worth the bill.",
+      "source": "docs/cost-model.md + representative token counts from traces"
+    }
+  ],
+  "production_default": {
+    "retrieval": "structural + hybrid_rerank",
+    "generator": "ollama with extractive fallback",
+    "why": "Best measured recall path at $0 API spend for the portfolio demo."
+  }
+}

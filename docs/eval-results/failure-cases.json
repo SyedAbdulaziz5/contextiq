@@ -1,0 +1,160 @@
+{
+  "title": "Failure analysis",
+  "subtitle": "Real golden-set misses and measured fixes — not hypotheticals.",
+  "sources": [
+    "eval/golden.jsonl",
+    "docs/eval-results/rag-metrics.json",
+    "docs/eval-results/hybrid-retrieval.json",
+    "docs/eval-results/experiments.json"
+  ],
+  "cases": [
+    {
+      "id": "F01",
+      "title": "Dense-only retrieval collapses",
+      "failure_mode": "retrieval",
+      "status": "mitigated",
+      "question_id": null,
+      "question": "(System-level) Pure dense similarity over structural chunks with the local hashing embedder used in early retrieval experiments.",
+      "retrieved": ["Near-random neighbors — almost no expected source docs in top-5"],
+      "observed_behavior": "Dense mode Recall@5 ≈ 3.9% on the answerable golden slice — effectively unusable alone.",
+      "expected_behavior": "Retrieve the docs that actually answer keyword and factual questions (IDs, status codes, quotas).",
+      "fix": {
+        "area": "retrieval",
+        "summary": "Added sparse BM25 + RRF hybrid, then feature rerank as production path."
+      },
+      "metric_impact": {
+        "metric": "Recall@5 (answerable golden, structural)",
+        "before": 3.9,
+        "after": 89.3,
+        "unit": "%",
+        "before_label": "dense only",
+        "after_label": "hybrid_rerank",
+        "source": "docs/eval-results/hybrid-retrieval.json"
+      },
+      "lesson": "Vector search alone misses exact tokens. Hybrid is not optional on this corpus."
+    },
+    {
+      "id": "F02",
+      "title": "Semantic chunking loses section boundaries",
+      "failure_mode": "chunking",
+      "status": "mitigated",
+      "question_id": null,
+      "question": "(System-level) Same BM25 retriever across fixed / structural / semantic chunk stores.",
+      "retrieved": ["Semantically split chunks that drift from doc headings and quota tables"],
+      "observed_behavior": "Semantic strategy Recall 80.2% vs structural 90.9% on the same sparse evaluator.",
+      "expected_behavior": "Chunks that preserve headings/tables so quotas and API names stay intact.",
+      "fix": {
+        "area": "chunking",
+        "summary": "Production default set to structural chunking; semantic kept as experiment only."
+      },
+      "metric_impact": {
+        "metric": "Recall (experiment matrix, BM25)",
+        "before": 80.2,
+        "after": 90.9,
+        "unit": "%",
+        "before_label": "semantic chunks",
+        "after_label": "structural chunks",
+        "source": "docs/eval-results/experiments.json"
+      },
+      "lesson": "Smarter-looking chunkers can still lose the structure evaluators care about."
+    },
+    {
+      "id": "F03",
+      "title": "Correct doc buried under noise (Lambda timeout)",
+      "failure_mode": "precision",
+      "status": "open",
+      "question_id": "q001",
+      "question": "What is the maximum execution timeout for an AWS Lambda function?",
+      "retrieved": [
+        "aws-lambda-limits",
+        "aws-bedrock-claude",
+        "aws-lambda-concurrency",
+        "aws-lambda-concurrency",
+        "aws-lambda-vpc"
+      ],
+      "expected_sources": ["aws-lambda-limits"],
+      "observed_behavior": "Expected source is present (recall 1.0) but context precision is only 0.2 — four of five hits are unrelated. Answer stayed faithful because the right chunk was still in the set.",
+      "expected_behavior": "Top ranks dominated by aws-lambda-limits; fewer off-topic neighbors in the prompt.",
+      "fix": {
+        "area": "reranking + retrieval threshold",
+        "summary": "hybrid_rerank is production default (precision@5 41.6% vs dense 0.9%). Further top-k / score-threshold tuning still open."
+      },
+      "metric_impact": {
+        "metric": "Precision@5 (structural modes)",
+        "before": 0.9,
+        "after": 41.6,
+        "unit": "%",
+        "before_label": "dense",
+        "after_label": "hybrid_rerank",
+        "source": "docs/eval-results/hybrid-retrieval.json"
+      },
+      "lesson": "Recall can look fine while the prompt is still polluted — measure precision too."
+    },
+    {
+      "id": "F04",
+      "title": "Ambiguous question answered instead of clarifying",
+      "failure_mode": "refusal_policy",
+      "status": "open",
+      "question_id": "q051",
+      "question": "What is the timeout?",
+      "retrieved": [
+        "aws-bedrock-claude",
+        "aws-lambda-versions-aliases",
+        "fastapi-response-model",
+        "aws-lambda-envvars",
+        "aws-lambda-limits"
+      ],
+      "expected_sources": ["aws-lambda-limits"],
+      "observed_behavior": "Golden expects AMBIGUOUS / clarify which service. Pipeline did not refuse (refused=false) and retrieved mixed docs with precision 0.2.",
+      "expected_behavior": "Ask which timeout (Lambda vs HTTP vs other) or refuse as underspecified.",
+      "fix": {
+        "area": "refusal policy + router",
+        "summary": "Unanswerable category already at 100% refusal accuracy. Ambiguous underspecified queries still need stronger clarify/refuse routing (Phase 14+)."
+      },
+      "metric_impact": {
+        "metric": "Refusal accuracy (unanswerable golden)",
+        "before": 100.0,
+        "after": 100.0,
+        "unit": "%",
+        "before_label": "current (unanswerable only)",
+        "after_label": "ambiguous still open",
+        "source": "docs/eval-results/rag-metrics.json",
+        "note": "No invented ambiguous-refusal lift — this case documents a remaining gap."
+      },
+      "lesson": "Refusal on out-of-corpus is solved; refusal on underspecified-in-corpus is not."
+    },
+    {
+      "id": "F05",
+      "title": "Ambiguous query with zero relevant retrieval",
+      "failure_mode": "retrieval + refusal",
+      "status": "open",
+      "question_id": "q053",
+      "question": "Which model should I pick?",
+      "retrieved": [
+        "fastapi-response-model",
+        "fastapi-request-body",
+        "sst-console",
+        "nextjs-installation",
+        "aws-lambda-concurrency"
+      ],
+      "expected_sources": ["aws-bedrock-titan-embeddings", "aws-bedrock-claude"],
+      "observed_behavior": "Context recall 0.0 and precision 0.0 — none of the Bedrock model docs retrieved. System still answered (refused=false) instead of clarifying embedding vs generation.",
+      "expected_behavior": "Clarify task (embed vs generate) or refuse; if answering, retrieve Titan/Claude docs.",
+      "fix": {
+        "area": "query rewrite + refusal threshold",
+        "summary": "Low retrieval score should trigger insufficient-evidence refusal more aggressively for ambiguous intents."
+      },
+      "metric_impact": {
+        "metric": "Context recall (this query)",
+        "before": 0.0,
+        "after": 0.0,
+        "unit": "%",
+        "before_label": "current run",
+        "after_label": "still failing",
+        "source": "docs/eval-results/rag-metrics.json detail q053",
+        "note": "Tracked as an open failure — not marked fixed."
+      },
+      "lesson": "When recall is zero, generating anyway is the failure — refusal should fire."
+    }
+  ]
+}
